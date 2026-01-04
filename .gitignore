@@ -36,6 +36,38 @@
 *.exe
 *.out
 *.app
+playlist
+demo
 
 # debug information files
 *.dwo
+
+# ==================================================
+# INSTRUCTOR-ONLY FILES (hidden from students)
+# To publish these later, comment out or remove lines
+# ==================================================
+
+# Lecture 1 instructor materials
+lect01/INSTRUCTOR_GUIDE.md
+lect01/ANSWER_KEY_Five_Problems.md
+lect01/ANSWER_KEY_Quick_Reference.md
+
+# Lecture 2 instructor materials
+lect02/INSTRUCTOR_GUIDE.md
+
+# General instructor documentation
+MEMORY_LEAK_DETECTION.md
+MACOS_LEAK_DETECTION_REALITY.md
+HOW_TO_PUBLISH_INSTRUCTOR_FILES.md
+SETUP_COMPLETE.md
+
+# macOS specific
+.DS_Store
+*.dSYM/
+
+# Editor files
+*~
+*.swp
+*.swo
+.vscode/
+.idea/
