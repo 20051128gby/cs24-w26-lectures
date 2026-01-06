@@ -7,6 +7,26 @@ CustomList::CustomList() : head(nullptr), tail(nullptr) {
     // This is the preferred C++ style
 }
 
+CustomList::CustomList(std::initializer_list<string> init)
+    : head(nullptr), tail(nullptr) {
+    // Use push_back to add each element from initializer list
+    for (const string& val : init) {
+        push_back(val); // Reuse existing method for consistency
+    }
+}
+
+void CustomList::clear(){
+        clearHelper(head);
+        head = nullptr;
+        tail = nullptr;
+    }
+
+void CustomList::clearHelper(Node *h){
+    if(h == nullptr) return;
+    clearHelper(h->next);
+    delete h;
+}
+
 
 // Add element to end of list - O(1) complexity!
 void CustomList::push_back(const string& val) {
@@ -33,7 +53,12 @@ void CustomList::print() const {
     // 2. Traverse the list using a loop
     // 3. Print each node's value
     // 4. Don't forget to print a newline at the end!
-
+    Node* current = head;
+    while (current != nullptr) {
+        cout << "["<< current->value << "]->";
+        current = current->next;
+    }
+    cout << "null"<< endl;
 }
 
 // Overload << operator for natural printing: cout << list;
@@ -41,6 +66,6 @@ void CustomList::print() const {
 // This is a FREE FUNCTION (not a member), but marked as friend
 ostream& operator<<(ostream& out, const CustomList& list) {
     // YOUR CODE HERE:
-
+    list.print(); // Reuse existing print method
     return out;  // Don't forget to return!
 }

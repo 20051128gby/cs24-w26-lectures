@@ -28,6 +28,9 @@ void demonstrateBasics() {
     cout << "Using print() method: ";
     playlist.print();
 
+    CustomList playlist2 = {"Bad", "Beat It", "Thriller"}; // Using initializer list constructor
+    cout << "Using initializer list constructor: " << playlist2;
+
     cout << endl;
 }
 

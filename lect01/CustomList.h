@@ -25,7 +25,13 @@ public:
     CustomList(std::initializer_list<string> init);
 
     // Destructor - Will be implemented in Lecture 2!
-    // ~CustomList();
+    ~CustomList(){
+        clear();
+        head = nullptr;
+        tail = nullptr;
+    }
+    // Clear the list and free memory
+    void clear();
 
     // Add an element to the end of the list - O(1) with tail pointer
     void push_back(const string& val);
@@ -50,6 +56,8 @@ private:
 
     Node* head;  // Points to first node
     Node* tail;  // Points to last node (enables O(1) push_back!)
+    void clearHelper(Node *node); // recursively clears the list
+
 };
 
 #endif
