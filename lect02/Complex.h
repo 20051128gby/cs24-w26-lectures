@@ -22,21 +22,21 @@ public:
     double getReal() const;
     double getImag() const;
 
-    // TODO: Implement operator<< (instructor will demo this live!)
-    // This allows: cout << complex_obj;
-    friend ostream& operator<<(ostream& out, const Complex& c);
-
-    // TODO: Implement operator+ (students will do this in Activity 1B!)
-    // This allows: Complex c3 = c1 + c2;
-    friend Complex operator+(const Complex& lhs, const Complex& rhs);
-
-    // Optional: operator== for comparison
-    // This allows: if (c1 == c2) { ... }
-    friend bool operator==(const Complex& lhs, const Complex& rhs);
-
 private:
     double real;
     double imag;
 };
+
+// TODO: Implement operator<< (demo this live!)
+// This allows: cout << complex_obj;
+ostream& operator<<(ostream& out, const Complex& c);
+
+// TODO: Implement operator+ (students do this in Activity 1B!)
+// This allows: Complex c3 = c1 + c2;
+Complex operator+(const Complex& lhs, const Complex& rhs);
+
+// Optional: operator== for comparison
+// This allows: if (c1 == c2) { ... }
+bool operator==(const Complex& lhs, const Complex& rhs);
 
 #endif

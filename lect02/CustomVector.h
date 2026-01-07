@@ -19,13 +19,16 @@ using namespace std;
 class CustomVector {
 public:
     // Constructor - creates empty vector
-    CustomVector();
+    CustomVector(size_t initialCapacity = 4);
 
     // Add element to end of vector
     void push_back(int val);
 
     // Get element at index (with bounds checking)
     int get(size_t index) const;
+
+    // Set element at index (with bounds checking)
+    void set(size_t index, int val);
 
     // Get current number of elements
     size_t getSize() const { return size; }
@@ -42,7 +45,7 @@ public:
 
     // Destructor - MUST clean up dynamic memory
     // TODO: Instructor will implement this LIVE!
-    // ~CustomVector();
+    ~CustomVector();
 
     // Copy constructor - MUST make deep copy
     // Called when: CustomVector v2 = v1;
@@ -52,7 +55,7 @@ public:
     // Copy assignment operator - MUST make deep copy
     // Called when: v2 = v1; (where v2 already exists)
     // TODO: Instructor will implement this LIVE!
-    // CustomVector& operator=(const CustomVector& other);
+    //CustomVector& operator=(const CustomVector& other);
 
 private:
     int* data;          // Dynamic array

@@ -1,9 +1,7 @@
 #include "CustomVector.h"
 
 // Constructor - allocates initial capacity
-CustomVector::CustomVector() : data(nullptr), size(0), capacity(0) {
-    // Start with capacity 4
-    capacity = 4;
+CustomVector::CustomVector(size_t initialCapacity) : data(nullptr), size(0), capacity(initialCapacity) {
     data = new int[capacity];
 }
 
@@ -25,6 +23,14 @@ int CustomVector::get(size_t index) const {
         throw out_of_range("Index out of bounds");
     }
     return data[index];
+}
+
+// Set element at index with bounds checking
+void CustomVector::set(size_t index, int val) {
+    if (index >= size) {
+        throw out_of_range("Index out of bounds");
+    }
+    data[index] = val;
 }
 
 // Print all elements
@@ -71,11 +77,8 @@ void CustomVector::resize() {
 // 3. Use delete[] (not delete) for arrays
 CustomVector::~CustomVector() {
     // INSTRUCTOR WILL LIVE-CODE THIS!
-    // Expected implementation:
-    // delete[] data;
-
     // Placeholder - REMOVE THIS WHEN IMPLEMENTING:
-    cout << "WARNING: Destructor not implemented - memory leak!" << endl;
+    //cout << "WARNING: Destructor not implemented - memory leak!" << endl;
 }
 
 // Copy constructor - Make a DEEP COPY
@@ -90,26 +93,18 @@ CustomVector::~CustomVector() {
 // 1. Default copy constructor does SHALLOW COPY (just copies pointers!)
 // 2. We need DEEP COPY (allocate NEW array, copy values)
 // 3. Otherwise both vectors share same array → DISASTER!
-CustomVector::CustomVector(const CustomVector& other)
-    : data(nullptr), size(0), capacity(0) {
-    // INSTRUCTOR WILL LIVE-CODE THIS!
-    //
-    // Strategy:
-    // 1. Copy size and capacity from other
-    // 2. Allocate NEW array with same capacity
-    // 3. Copy all elements from other's array to our array
-    //
-    // Expected implementation:
-    // size = other.size;
-    // capacity = other.capacity;
-    // data = new int[capacity];
-    // for (size_t i = 0; i < size; i++) {
-    //     data[i] = other.data[i];
-    // }
+// CustomVector::CustomVector(const CustomVector& other)
+//     : data(nullptr), size(0), capacity(0) {
+//     // INSTRUCTOR WILL LIVE-CODE THIS!
+//     //
+//     // Strategy:
+//     // 1. Copy size and capacity from other
+//     // 2. Allocate NEW array with same capacity
+//     // 3. Copy all elements from other's array to our array
 
-    // Placeholder - REMOVE THIS WHEN IMPLEMENTING:
-    cout << "WARNING: Copy constructor not implemented - shallow copy!" << endl;
-}
+//     // Placeholder - REMOVE THIS WHEN IMPLEMENTING:
+//     cout << "WARNING: Copy constructor not implemented - shallow copy!" << endl;
+// }
 
 // Copy assignment operator - Clean up old, then deep copy
 // TODO: Instructor will implement this LIVE!
@@ -122,32 +117,6 @@ CustomVector::CustomVector(const CustomVector& other)
 // 2. Must handle self-assignment: v1 = v1;
 // 3. Pattern: Clean up old data + Copy from other
 // 4. Return *this for chaining: v1 = v2 = v3;
-CustomVector& CustomVector::operator=(const CustomVector& other) {
-    // INSTRUCTOR WILL LIVE-CODE THIS!
-    //
-    // Strategy:
-    // 1. Check for self-assignment (if this == &other)
-    // 2. Delete old array (like destructor)
-    // 3. Copy from other (like copy constructor)
-    // 4. Return *this
-    //
-    // Expected implementation:
-    // if (this == &other) {
-    //     return *this;
-    // }
-    //
-    // delete[] data;  // Clean up old
-    //
-    // size = other.size;
-    // capacity = other.capacity;
-    // data = new int[capacity];
-    // for (size_t i = 0; i < size; i++) {
-    //     data[i] = other.data[i];
-    // }
-    //
-    // return *this;
+// CustomVector& CustomVector::operator=(const CustomVector& other) {
 
-    // Placeholder - REMOVE THIS WHEN IMPLEMENTING:
-    cout << "WARNING: Assignment operator not implemented - shallow copy!" << endl;
-    return *this;
-}
+// }

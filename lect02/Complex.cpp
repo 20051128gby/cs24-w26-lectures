@@ -16,7 +16,7 @@ double Complex::getImag() const {
 }
 
 // TODO: Implement operator<< (Instructor will demo this LIVE!)
-// This is a FREE FUNCTION (not a member), but marked as friend
+// This is a FREE FUNCTION (not a member), so it is defined outside the class.
 //
 // Key points to demonstrate:
 // 1. Return type is ostream& (for chaining)
@@ -28,12 +28,6 @@ double Complex::getImag() const {
 ostream& operator<<(ostream& out, const Complex& c) {
     // INSTRUCTOR WILL LIVE-CODE THIS!
     // Expected implementation:
-    // out << c.real;
-    // if (c.imag >= 0)
-    //     out << " + " << c.imag << "j";
-    // else
-    //     out << " - " << (-c.imag) << "j";
-    // return out;
 
     // Placeholder for now:
     out << "TODO: Implement me!";
@@ -49,8 +43,8 @@ ostream& operator<<(ostream& out, const Complex& c) {
 // 3. Returns by value (not reference to local variable!)
 Complex operator+(const Complex& lhs, const Complex& rhs) {
     // YOUR CODE HERE (Students Activity 1B):
-    // 1. Add the real parts: lhs.real + rhs.real
-    // 2. Add the imaginary parts: lhs.imag + rhs.imag
+    // 1. Add the real parts
+    // 2. Add the imaginary parts
     // 3. Return a NEW Complex with those values
 
 
@@ -61,5 +55,5 @@ Complex operator+(const Complex& lhs, const Complex& rhs) {
 // OPTIONAL: operator== for comparison
 // Two complex numbers are equal if both real and imag parts match
 bool operator==(const Complex& lhs, const Complex& rhs) {
-    return (lhs.real == rhs.real) && (lhs.imag == rhs.imag);
+    return true; // Placeholder;
 }

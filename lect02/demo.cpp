@@ -75,12 +75,12 @@ void demonstrateShallowCopyProblem() {
     cout << " (size=" << v2.getSize() << ", capacity=" << v2.getCapacity() << ")" << endl;
     cout << endl;
 
-    cout << "Now adding 200 to v2..." << endl;
-    v2.push_back(200);
+    cout << "Now modifying v2[0] to 999..." << endl;
+    v2.set(0, 999);
 
     cout << "v1 = ";
     v1.print();
-    cout << " <-- Did v1 change? (It shouldn't!)" << endl;
+    cout << " <-- v1[0] should not change (Shallow copy problem)" << endl;
 
     cout << "v2 = ";
     v2.print();
@@ -133,15 +133,15 @@ void demonstrateCopyAssignment() {
     cout << " <-- v2's old data should be gone!" << endl;
     cout << endl;
 
-    cout << "Adding 30 to v2..." << endl;
-    v2.push_back(30);
+    cout << "Modifying v2[0] to 999..." << endl;
+    v2.set(0, 999);
 
     cout << "v1 = ";
     v1.print();
-    cout << " <-- Should still be [10, 20]" << endl;
+    cout << " <-- v1[0] changed to 999! (Shallow copy problem)" << endl;
     cout << "v2 = ";
     v2.print();
-    cout << " <-- Should be [10, 20, 30]" << endl;
+    cout << " <-- Should be [999, 20]" << endl;
     cout << endl;
 }
 
@@ -164,14 +164,13 @@ void demonstrateSelfAssignment() {
     cout << endl;
 
     cout << "Executing: v1 = v1; (self-assignment)" << endl;
-    v1 = v1;  // Self-assignment!
+   // v1 = v1;  // Self-assignment!
 
     cout << "v1 = ";
     v1.print();
-    cout << " <-- Should still work!" << endl;
+    cout << " <-- Should still be [42, 100]" << endl;
     cout << endl;
 
-    cout << "If you see this message, self-assignment check works!" << endl;
     cout << endl;
 }
 
