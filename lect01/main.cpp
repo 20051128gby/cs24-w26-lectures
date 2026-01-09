@@ -12,7 +12,7 @@ class CustomList {
 public:
     Node* head; //Issue 1: head should be private to encapsulate the data structure.
                  // Sol: Make head private and provide public methods for access if needed.
-
+    Node* tail;
     CustomList() : head(nullptr) {}
      // Issue 2: Missing destructor to free allocated memory.
 
@@ -21,10 +21,9 @@ public:
         Node* newNode = new Node{val, nullptr};
         if (!head) {
             head = newNode;
+            tail = newNode;
         } else {
-            Node* temp = head;
-            while (temp->next) temp = temp->next;
-            temp->next = newNode;
+            tail->next = newNode;
         }
     }
 
